@@ -3,7 +3,7 @@ using namespace std;
 
 int arr[] = {1, 2, 3};
 
-void printSubsequence(int index, vector<int> &op, int n)
+void printSubsequence(int index, vector<int> op, int n)
 {
     if (index == n)
     {
@@ -12,10 +12,11 @@ void printSubsequence(int index, vector<int> &op, int n)
         cout << endl; // Add a newline after printing each subsequence
         return;
     }
+    printSubsequence(index + 1, op, n);
     op.push_back(arr[index]);
     printSubsequence(index + 1, op, n);
     op.pop_back();
-    printSubsequence(index + 1, op, n);
+    
 }
 
 int main()
