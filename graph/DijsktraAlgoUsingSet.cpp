@@ -1,3 +1,7 @@
+
+
+// between set and pq, neither is the better one. In larger graphs, use set as future iterations are saved. BUt in smaller graph, set.erase() increases the tc, though by a very small amount
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -42,7 +46,7 @@ public:
                 if (dis + edgW < dist[adjNode])
                 {
                     // erase if it was visited previously at
-                    // a greater cost.
+                    // a greater cost as in priority queue, it would've calculated that path even if it was at a shorter distance. So this saves future iterations.
                     if (dist[adjNode] != 1e9)
                         st.erase({dist[adjNode], adjNode});
 
