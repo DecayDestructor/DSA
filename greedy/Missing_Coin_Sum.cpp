@@ -98,6 +98,23 @@ void solve()
 {
     ll n;
     cin >> n;
+    vll arr(n);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+    sort(arr.begin(), arr.end());
+    ll curr = 1;
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] > curr)
+        {
+            cout << curr << nl;
+            return;
+        }
+        curr += arr[i];
+    }
+    cout << curr << nl;
 }
 int main()
 {
